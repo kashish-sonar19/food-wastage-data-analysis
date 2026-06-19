@@ -3,14 +3,19 @@ import pandas as pd
 import plotly.express as px
 from sqlalchemy import create_engine, text
 import time
+import os
 
 #  1. PAGE CONFIGURATION 
 st.set_page_config(page_title="Community Food Share Portal", layout="wide")
 
-# 2. DATABASE SETUP  
-# Streamlit deployment ke liye hum SQLite database file ka use kar rahe hain
 
-db_engine = create_engine("sqlite:///food_wastage.db")
+# --- 2. DATABASE SETUP ---
+# Yeh code automatically exact folder ka raasta nikalega jahan app.py rakhi hai
+current_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(current_dir, "food_wastage.db")
+
+# Linux Cloud ke liye sahi path string generate karke engine banana
+db_engine = create_engine(f"sqlite:///{db_path}", connect_args={'check_same_thread': False})
 
 @st.cache_data
 def fetch_database_records(sql_query):
