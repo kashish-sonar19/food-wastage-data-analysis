@@ -16,3 +16,7 @@ A centralized, user-friendly portal designed to bridge the gap between food dono
 
 ##  Mission
 To minimize urban food waste by providing a transparent, real-time inventory system that connects those who have excess with those who need it the most.
+
+## Live Project Link
+
+https://food-wastage-data-analysis-ly4d46nkxfygbhfappbythr.streamlit.app/
